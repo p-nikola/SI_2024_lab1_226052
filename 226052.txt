@@ -1,0 +1,64 @@
+cd SI_2024_lab1_226052/
+git init (Го иницијализираме репото)
+git remote add origin https://github.com/p-nikola/SI_2024_lab1_226052.git (Поврзување на локалниот репозиториум со оддалечениот репозиториум.)
+nano README.md
+git add . (Додавање на фајл во staging)
+git commit -m "Initial commit"
+git status (Проверување на состојба на фајловите)
+git add .
+git commit -m "Add starter code"
+git push origin master
+git branch bug1 (Создавање на гранка со име bug1)
+git branch bug2 (Создавање на гранка со име bug2)
+git branch (Листање на сите гранки)
+git checkout bug1 (Префрлување на гранка bug1)
+git status
+git commit -m "Fix wrong condition in filterOddLengthStrings"
+git status
+git log
+git add .
+git commit -m "Fix wrong condition in filterOddLengthStrings"
+git checkout bug2 (Префрлување на гранка bug2)
+git status
+git add .
+git commit -m "Fix wrong condition in makeBigStringFrom"
+git checkout bug1
+git status
+git add .
+git commit -m "Call method filterOddLengthStrings in main class"
+git checkout bug2 (Префрлување на гранка bug2)
+git status
+git add .
+git commit -m "Call method makeBigStringFrom in main class"
+git checkout bug1
+git push origin bug1 (Синхронизација со оддалечениот репозиториум)
+git checkout bug2
+git push origin bug2 (Синхронизација со оддалечениот репозиториум)
+git checkout master
+git merge bug1(Нема конфликт Fast Forward спојување)
+(Updating 8c955b8..a544ed9
+Fast-forward
+ SILab1Main.java | 1 +
+ SILab1_1.java   | 2 +-
+ 2 files changed, 2 insertions(+), 1 deletion(-)
+)
+git push --all origin (Синхронизација со оддалечениот репозиториум)
+git checkout bug2
+git rebase master(Настанат конфликт при праваење на rebase поради тоа што на истата линија има повикување на друга метода)
+(Решавање на конфликтот со тоа што се ставаат двата метода еден по друг)
+git status
+git add .
+git commit -m "Fixing conflict"
+git rebase --continue (продолжување со rebase откога ќе се поправи конфликтот)
+git checkout master
+git merge bug2(По решавање на конфликтот се прави Fast forward спојување)
+(Updating a544ed9..610f0fe
+Fast-forward
+ SILab1Main.java | 1 +
+ SILab1_2.java   | 2 +-
+ 2 files changed, 2 insertions(+), 1 deletion(-)
+)
+git push --force --all origin(Синхронизација со сите гранки на оддалечениот репозиториум)
+git log
+touch logs.txt
+touch 226052.txt
